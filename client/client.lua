@@ -78,3 +78,9 @@ CreateThread(function()
         end
     end
 end)
+
+-- Player Drop
+AddEventHandler('playerDropped', function(reason)
+    print('Player ' .. GetPlayerName(source) .. ' dropped (Reason: ' .. reason .. ')')
+    TriggerServerEvent('playerDroppedSave')
+end)
