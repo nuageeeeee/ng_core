@@ -5,4 +5,5 @@ RegisterNetEvent('saveAll')
 -- saveAll loop
 AddEventHandler('saveAll', function()
     NX.Players.SaveAll()
+    print('succesful')
 end)
