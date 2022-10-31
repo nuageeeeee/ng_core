@@ -37,5 +37,15 @@ end, {"admin"})
 
 NX.Misc.AddCommand('save', function(source, args)
     local nxPlayer = NX.Players.Get(source)
-    NX.Players.SaveAll()
+    nxPlayer.Save()
 end, {"user", "admin"})
+
+NX.Misc.AddCommand('setjob', function(source, args)
+    local nxPlayer = NX.Players.Get(source)
+    nxPlayer.SetJob(args[1], args[2], 1)
+end, {"admin"})
+
+NX.Misc.AddCommand('setgroup', function(source, args)
+    local nxPlayer = NX.Players.Get(source)
+    nxPlayer.SetPermissions(args[1])
+end, {"admin"})
