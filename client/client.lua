@@ -66,15 +66,15 @@ end
 CreateThread(function()
     while true do
         if NX.Player.HasLoaded() then
-        Wait(60000)
-        TriggerServerEvent('saveAll')
-        NX.Misc.CreateNotification({
-            type = 'Sauvegarde',
-            duration = 5,
-            body = {
-              content = 'Sauvergade des joueurs'
-            }
-          })
+            Wait(60000)
+            TriggerServerEvent('saveAll')
+            NX.Misc.CreateNotification({
+                type = 'SUCCES',
+                duration = 5,
+                body = {
+                    content = 'Sauvergade des joueurs'
+                }
+            })
         end
     end
 end)
