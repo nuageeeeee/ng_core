@@ -28,11 +28,13 @@ NX.Misc.AddCommand('repair', function(source, args)
     TriggerClientEvent('repair', source)
     local nxPlayer = NX.Players.Get(source)
 
-nxPlayer.SetJob('police', 'officer', 1)
+    nxPlayer.SetJob('police', 'officer', 1)
 end, {"admin"})
 
 NX.Misc.AddCommand('revive', function(source, args)
-    TriggerClientEvent('revive', source, args[1])
+    local nxPlayer = NX.Players.Get(1)
+    local playerId = tonumber(args[1])
+    TriggerClientEvent('revive', playerId)
 end, {"admin"})
 
 NX.Misc.AddCommand('save', function(source, args)

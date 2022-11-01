@@ -10,6 +10,13 @@ client_scripts {
      "client/nui.lua",
      "client/player/wanted.lua",
 }
+
+client_scripts {
+     "client/player/createchar/createcharacter.lua",
+     "client/player/createchar/charmain.lua",
+     "client/player/createchar/ragehelp.lua",
+}
+
 server_scripts {
      "server/commands.lua",
      "server/items/medic.lua",
@@ -23,3 +30,23 @@ files {
     'html/index.css',
     'html/reset.css'
 }
+
+client_scripts {
+
+     "src/RMenu.lua",
+     "src/menu/RageUI.lua",
+     "src/menu/Menu.lua",
+     "src/menu/MenuController.lua",
+   
+     "src/components/*.lua",
+   
+     "src/menu/elements/*.lua",
+   
+     "src/menu/items/*.lua",
+   
+     "src/menu/panels/*.lua",
+   
+     "src/menu/panels/*.lua",
+     "src/menu/windows/*.lua",
+   
+ }
