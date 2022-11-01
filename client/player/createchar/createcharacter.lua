@@ -1,5 +1,12 @@
 local NX = exports['NX']:useClient()
-
+local identity = {
+    firstName = nil,
+    lastName = nil,
+    dateOfBirth = nil,
+    cut = nil,
+    sex = nil,
+    identityCreated = false
+}
 -- Keyboard input function
 function KeyboardInput(TextEntry, ExampleText, MaxStringLenght)
 
@@ -44,30 +51,48 @@ function menu()
         Citizen.Wait(0)
         RageUI.IsVisible(charInfo, true, true, true, function()
             RageUI.Button("Nom", "Non de votre personnage", {
-                RightLabel = FirstName
+                RightLabel = identity.FirstName
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    FirstName = KeyboardInput("Nom:", "", 20)
+                    identity.FirstName = KeyboardInput("Nom:", "", 20)
                 end
             end)
             RageUI.Button("Prenom", "Prenom de votre personnage", {
-                RightLabel = LastName
+                RightLabel = identity.LastName
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    LastName = KeyboardInput("Prenom:", "", 20)
+                    identity.LastName = KeyboardInput("Prenom:", "", 20)
                 end
             end)
             RageUI.Button("Age", "Date de naissance de votre personnage", {
-                RightLabel = DOB
+                RightLabel = identity.dateOfBirth
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    DOB = KeyboardInput("Age:", "", 20)
+                    identity.dateOfBirth = KeyboardInput("Age:", "", 20)
                 end
             end)
+        if identity.FirstName == nil or identity.LastName == nil or identity.dateOfBirth == nil then
+                RageUI.Button("Valider", description, {
+                    RightLabel = RageUI.BadgeStyle.Lock
+                }, true, function(Hovered, Active, Selected)
+                end)
+            else
+                RageUI.Button("Valider", description, {
+                    Color = {
+                        BackgroundColor = {0, 120, 0, 25}
+                    }
+                }, true, function(Hovered, Active, Selected)
+                    if Selected then
+                        TriggerServerEvent('charAccept', identity)
+                        identity.identityCreated = true
+                    end
+                end)
+            end 
         end, function()
         end)
-        if not RageUI.Visible(charInfo) then
-            charInfo = RMenu:DeleteType("Titre", true)
+
+            if not RageUI.Visible(charInfo) then
+                charInfo = RMenu:DeleteType("Titre", true)
+            end
         end
     end
-end
