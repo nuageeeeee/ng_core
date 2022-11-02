@@ -68,14 +68,14 @@ function menu()
                 RightLabel = identity.dateOfBirth
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    identity.dateOfBirth = KeyboardInput("Age:", "", 20)
+                    identity.dateOfBirth = KeyboardInput("xx/xx/xxxx:", "", 20)
                 end
             end)
             RageUI.Button("Sexe", "Sexe de votre personnage", {
                 RightLabel = identity.sex
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    identity.sex = KeyboardInput("Homme ou Femme", "", 20)
+                    identity.sex = KeyboardInput("male ou female", "", 20)
                 end
             end)
             RageUI.Button("Taille", "Taille de votre personnage", {
@@ -85,10 +85,17 @@ function menu()
                     identity.taille = KeyboardInput("Taille:", "", 20)
                 end
             end)
+            RageUI.Button("test", "test", {
+                RightLabel = identity.taille
+            }, true, function(Hovered, Active, Selected)
+                if Selected then
+                    charCreator()
+                end
+            end)
             if identity.firstName == nil or identity.lastName == nil or identity.dateOfBirth == nil or identity.sex ==
                 nil or identity.taille == nil then
                 RageUI.Button("Valider", description, {
-                    RightLabel = RageUI.BadgeStyle.Lock
+                    RightBadge = RageUI.BadgeStyle.Lock
                 }, true, function(Hovered, Active, Selected)
                 end)
             else
@@ -100,6 +107,8 @@ function menu()
                     if Selected then
                         TriggerServerEvent('ng_core:characcept', identity)
                         identity.identityCreated = true
+                        RageUI.CloseAll()
+                        charCreator()
                     end
                 end)
             end
@@ -108,6 +117,23 @@ function menu()
 
         if not RageUI.Visible(charInfo) then
             charInfo = RMenu:DeleteType("Titre", true)
+        end
+    end
+end
+
+function charCreator()
+    local uidP = NX.Player.GetValue('uid')
+    local charcrea = RageUI.CreateMenu("Creation personnage", "uid : " .. uidP .. " Prenom :" .. identity.firstName)
+    RageUI.Visible(charcrea, not RageUI.Visible(charcrea))
+    while charcrea do
+        Citizen.Wait(0)
+        RageUI.IsVisible(charcrea, true, true, true, function()
+            RageUI.Slider('Tete', '0', '10', Description, Divider, Style, Enabled, Actions)
+        end, function()
+        end)
+
+        if not RageUI.Visible(charcrea) then
+            charcrea = RMenu:DeleteType("Titre", true)
         end
     end
 end

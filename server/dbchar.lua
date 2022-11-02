@@ -8,6 +8,7 @@ AddEventHandler('ng_core:characcept', function(Identity)
     local dateOfBirth = Identity.dateOfBirth
     local Sex = Identity.sex
     local Taille = Identity.taille
+
     print(Firstname)
     nxPlayer.SetCharInfoKey('firstname', Firstname)
     nxPlayer.SetCharInfoKey('lastname', Lastname)
