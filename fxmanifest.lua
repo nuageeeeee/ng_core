@@ -21,6 +21,7 @@ server_scripts {
      "server/commands.lua",
      "server/items/medic.lua",
      "server/server.lua",
+     "server/dbchar.lua",
 }
 
 ui_page 'html/index.html'

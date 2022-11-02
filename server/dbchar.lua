@@ -1,9 +1,8 @@
 local NX = exports['NX']:useServer()
 
-RegisterServerEvent('charAccept')
+RegisterNetEvent('charAccept')
 AddEventHandler('charAccept', function(Identity)
     local nxPlayer = NX.Players.Get(1)
-
-    MySql.execute(UPDATE `nx_users` SET `charinfo` = 'newvalue2w')
-
+    local FirstName = Identity.FirstName
+    nxPlayer.setCharInfoKey(firstname, 'deb')
 end)
