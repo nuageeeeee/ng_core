@@ -1,11 +1,11 @@
 local NX = exports['NX']:useClient()
-local Identity = {
+local identity = {
     firstName = nil,
     lastName = nil,
     dateOfBirth = nil,
     cut = nil,
     sex = nil,
-    IdentityCreated = false
+    identityCreated = false
 }
 -- Keyboard input function
 function KeyboardInput(TextEntry, ExampleText, MaxStringLenght)
@@ -51,41 +51,42 @@ function menu()
         Citizen.Wait(0)
         RageUI.IsVisible(charInfo, true, true, true, function()
             RageUI.Button("Nom", "Non de votre personnage", {
-                RightLabel = Identity.FirstName
+                RightLabel = identity.FirstName
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    Identity.FirstName = KeyboardInput("Nom:", "", 20)
+                    identity.FirstName = KeyboardInput("Nom:", "", 20)
                 end
             end)
             RageUI.Button("Prenom", "Prenom de votre personnage", {
-                RightLabel = Identity.LastName
+                RightLabel = identity.LastName
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    Identity.LastName = KeyboardInput("Prenom:", "", 20)
+                    identity.LastName = KeyboardInput("Prenom:", "", 20)
                 end
             end)
             RageUI.Button("Age", "Date de naissance de votre personnage", {
-                RightLabel = Identity.dateOfBirth
+                RightLabel = identity.dateOfBirth
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    Identity.dateOfBirth = KeyboardInput("Age:", "", 20)
+                    identity.dateOfBirth = KeyboardInput("Age:", "", 20)
                 end
             end)
             RageUI.Button("Sexe", "Sexe de votre personnage", {
-                RightLabel = Identity.Sex
+                RightLabel = identity.Sex
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    Identity.Sex = KeyboardInput("Homme ou Femme", "", 20)
+                    identity.Sex = KeyboardInput("Homme ou Femme", "", 20)
                 end
             end)
             RageUI.Button("Taille", "Taille de votre personnage", {
-                RightLabel = Identity.Taille
+                RightLabel = identity.Taille
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    Identity.Taille = KeyboardInput("Taille:", "", 20)
+                    identity.Taille = KeyboardInput("Taille:", "", 20)
                 end
             end)
-            if Identity.FirstName == nil or Identity.LastName == nil or Identity.dateOfBirth == nil or Identity.Sex == nil or Identity.Taille == nil then
+            if identity.FirstName == nil or identity.LastName == nil or identity.dateOfBirth == nil or identity.Sex ==
+                nil or identity.Taille == nil then
                 RageUI.Button("Valider", description, {
                     RightLabel = RageUI.BadgeStyle.Lock
                 }, true, function(Hovered, Active, Selected)
@@ -97,9 +98,9 @@ function menu()
                     }
                 }, true, function(Hovered, Active, Selected)
                     if Selected then
-                        TriggerServerEvent('charAccept', Identity)
-                        print(Identity.FirstName)
-                        Identity.IdentityCreated = true
+                        TriggerServerEvent('charAccept', identity)
+                        print(identity.FirstName)
+                        identity.identityCreated = true
                     end
                 end)
             end
