@@ -51,17 +51,17 @@ function menu()
         Citizen.Wait(0)
         RageUI.IsVisible(charInfo, true, true, true, function()
             RageUI.Button("Nom", "Non de votre personnage", {
-                RightLabel = identity.FirstName
+                RightLabel = identity.firstName
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    identity.FirstName = KeyboardInput("Nom:", "", 20)
+                    identity.firstName = KeyboardInput("Nom:", "", 20)
                 end
             end)
             RageUI.Button("Prenom", "Prenom de votre personnage", {
-                RightLabel = identity.LastName
+                RightLabel = identity.lastName
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    identity.LastName = KeyboardInput("Prenom:", "", 20)
+                    identity.lastName = KeyboardInput("Prenom:", "", 20)
                 end
             end)
             RageUI.Button("Age", "Date de naissance de votre personnage", {
@@ -72,21 +72,21 @@ function menu()
                 end
             end)
             RageUI.Button("Sexe", "Sexe de votre personnage", {
-                RightLabel = identity.Sex
+                RightLabel = identity.sex
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    identity.Sex = KeyboardInput("Homme ou Femme", "", 20)
+                    identity.sex = KeyboardInput("Homme ou Femme", "", 20)
                 end
             end)
             RageUI.Button("Taille", "Taille de votre personnage", {
-                RightLabel = identity.Taille
+                RightLabel = identity.taille
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    identity.Taille = KeyboardInput("Taille:", "", 20)
+                    identity.taille = KeyboardInput("Taille:", "", 20)
                 end
             end)
-            if identity.FirstName == nil or identity.LastName == nil or identity.dateOfBirth == nil or identity.Sex ==
-                nil or identity.Taille == nil then
+            if identity.firstName == nil or identity.lastName == nil or identity.dateOfBirth == nil or identity.sex ==
+                nil or identity.taille == nil then
                 RageUI.Button("Valider", description, {
                     RightLabel = RageUI.BadgeStyle.Lock
                 }, true, function(Hovered, Active, Selected)
@@ -98,8 +98,7 @@ function menu()
                     }
                 }, true, function(Hovered, Active, Selected)
                     if Selected then
-                        TriggerServerEvent('charAccept', identity)
-                        print(identity.FirstName)
+                        TriggerServerEvent('ng_core:characcept', identity)
                         identity.identityCreated = true
                     end
                 end)
