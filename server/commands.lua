@@ -54,5 +54,5 @@ end, {"user", "admin"})
 
 NX.Misc.AddCommand('setChar', function(source, args)
     local nxPlayer = NX.Players.Get(source)
-    TriggerClientEvent('charcreator', source)
+    TriggerClientEvent('menutest', source)
 end, {"admin"})

@@ -89,7 +89,6 @@ function menu()
                 RightLabel = identity.taille
             }, true, function(Hovered, Active, Selected)
                 if Selected then
-                    charCreator()
                 end
             end)
             if identity.firstName == nil or identity.lastName == nil or identity.dateOfBirth == nil or identity.sex ==
