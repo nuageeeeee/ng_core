@@ -15,7 +15,7 @@ client_scripts {
      "client/player/createchar/createcharacter.lua",
      "client/player/createchar/charmain.lua",
      "client/player/createchar/ragehelp.lua",
-     "client/player/createchar/charcreator.lua",
+     "client/player/createchar/nxMenu.lua",
 }
 
 server_scripts {
