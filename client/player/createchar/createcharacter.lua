@@ -89,6 +89,8 @@ function menu()
                 RightLabel = identity.taille
             }, true, function(Hovered, Active, Selected)
                 if Selected then
+                    RageUI.CloseAll()
+                    TriggerEvent('menue')
                 end
             end)
             if identity.firstName == nil or identity.lastName == nil or identity.dateOfBirth == nil or identity.sex ==
