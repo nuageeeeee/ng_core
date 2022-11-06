@@ -10,9 +10,6 @@ AddEventHandler('ng_core:characcept', function(Identity)
     local Taille = Identity.taille
     
     print(Firstname)
-    nxPlayer.SetCharInfoKey('firstname', Firstname)
-    nxPlayer.SetCharInfoKey('lastname', Lastname)
-    nxPlayer.SetCharInfoKey('dob', dateOfBirth)
-    nxPlayer.SetCharInfoKey('sex', Sex)
-   nxPlayer.SetCharInfoKey('height', Taille)
+    nxPlayer.SetCharInfoKey(['firstname', Firstname], ['lastname', Lastname], ['dob', dateOfBirth], ['sex', Sex], ['height', Taille])
+
 end)

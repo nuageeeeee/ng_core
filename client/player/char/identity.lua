@@ -10,7 +10,7 @@ local identity = {
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(10)
-        if IsControlJustPressed(1, 166) then
+        if IsControlJustPressed(1, 56) then
             menu()
         end
     end

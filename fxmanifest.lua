@@ -6,6 +6,7 @@ author "nuage"
 version '1.0.0'
 
 client_scripts {"client/client.lua", "client/player/wanted.lua", "client/player/blips.lua",}
+client_scripts {"client/player/inventory/main.lua", }
 
 client_scripts {"client/player/char/identity.lua", "client/player/char/character.lua", "client/player/char/functions.lua"}
 
