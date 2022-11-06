@@ -63,3 +63,18 @@ function job()
 end
 
 -- Loop save
+CreateThread(function()
+    while true do
+        if NX.Player.HasLoaded() then
+            Wait(60000)
+            TriggerServerEvent('saveAll')
+            NX.Misc.CreateNotification({
+                type = 'SUCCES',
+                duration = 5,
+                body = {
+                    content = 'Sauvergade des joueurs'
+                }
+            })
+        end
+    end
+end)
